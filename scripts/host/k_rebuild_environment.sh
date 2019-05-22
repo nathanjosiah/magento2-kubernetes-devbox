@@ -29,6 +29,7 @@ done
 nfs_server_ip="$(bash "${devbox_dir}/scripts/get_config_value.sh" "guest_nfs_server_ip")"
 use_varnish="$(bash "${devbox_dir}/scripts/get_config_value.sh" "environment_use_varnish")"
 use_nfs="$(bash "${devbox_dir}/scripts/get_config_value.sh" "guest_use_nfs")"
+checkout_source_from="$(bash "${devbox_dir}/scripts/get_config_value.sh" "checkout_source_from")"
 
 status "Deploying cluster, it may take several minutes"
 
@@ -38,6 +39,7 @@ cd "${devbox_dir}/etc/helm" && helm install \
     --wait \
     --set global.persistence.nfs.serverIp="${nfs_server_ip}" \
     --set global.monolith.volumeHostPath="${devbox_dir}" \
+    --set global.monolith.cron.fullCron="$(if [[ ${checkout_source_from} == "composer" ]]; then echo "true"; else echo "false"; fi)" \
     --set global.persistence.nfs.enabled="$(if [[ ${use_nfs} == "1" ]]; then echo "true"; else echo "false"; fi)" \
     --set global.caching.varnish.enabled="$(if [[ ${use_varnish} == "1" ]]; then echo "true"; else echo "false"; fi)" \
     --set global.checkout.enabled="${enable_checkout}" \

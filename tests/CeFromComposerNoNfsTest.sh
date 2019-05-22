@@ -63,6 +63,8 @@ function testCeFromComposerNoNfs()
 
     assertRedisCacheIsEnabled
 
+    assertMagentoCronFullIsRunning
+
     executeExtendedCommonAssertions
 }
 

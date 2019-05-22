@@ -48,6 +48,8 @@ global:
       varnishPort: 6081
     mysqlHost: magento-mysql
     volumeHostPath: /Users/user/Projects/magento2-kubernetes-for-developers
+    cron:
+      fullCron: false # This value is overridden via <devbox_project>/etc/config.yaml
   persistence:
     nfs:
       enabled: true # This value is overridden via <devbox_project>/etc/config.yaml

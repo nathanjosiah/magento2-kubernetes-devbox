@@ -59,7 +59,7 @@ for release in "$@"; do
         done
 
         if [ $counter -eq $attempts ]; then
-            error "${release} ${kind} failed to delete in time. Deleting manually.";
+            info "${release} ${kind} failed to delete in time. Deleting manually.";
             deleteResourceManually "$kind" "$release"
 
             counter=0

@@ -8,6 +8,7 @@ function executeBasicCommonAssertions()
     assertMagentoInstalledSuccessfully
     assertMagentoFrontendAccessible
     assertMagentoCliWorks
+    assertMagentoCronCommonIsRunning
 }
 
 function executeExtendedCommonAssertions()
@@ -524,4 +525,21 @@ function assertRedisCacheIsDisabled()
 
     cache_directory="${devbox_dir}/magento/var/cache"
     assertTrue "Redis cache seems to be enabled since cache directory '${cache_directory}' was not created." '[[ -d ${cache_directory} ]]'
+}
+
+function assertMagentoCronCommonIsRunning()
+{
+    echo "${blue}## assertMagentoCronCommonIsRunning${regular}"
+    echo "## assertMagentoCronCommonIsRunning" >>${current_log_file_path}
+
+    assertTrue "Basic cron job magento-cron is not running." "[ -n '$(kubectl get cronjobs -o name | grep -o 'magento-cron$')' ]"
+}
+
+function assertMagentoCronFullIsRunning()
+{
+    echo "${blue}## assertMagentoCronFullIsRunning${regular}"
+    echo "## assertMagentoCronFullIsRunning" >>${current_log_file_path}
+
+    assertTrue "Basic cron job magento-c is not running." "[ -n '$(kubectl get cronjobs -o name | grep -o 'magento-setup-cron$')' ]"
+    assertTrue "Basic cron job magento-c is not running." "[ -n '$(kubectl get cronjobs -o name | grep -o 'magento-updater-cron$')' ]"
 }
