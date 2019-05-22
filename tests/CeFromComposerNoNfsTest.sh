@@ -66,6 +66,8 @@ function testCeFromComposerNoNfs()
     assertMagentoCronFullIsRunning
 
     executeExtendedCommonAssertions
+
+    assertMainPageServedByBuiltInCache
 }
 
 ## Call and Run all Tests
