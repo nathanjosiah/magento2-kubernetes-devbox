@@ -44,16 +44,6 @@ spec:
                         value: {{.Values.global.monolith.volumeHostPath}}
                       - name: IS_WINDOWS_HOST
                         value: "0"
-                  readinessProbe:
-                      exec:
-                        command:
-                          - test
-                          - -f
-                          - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
-                      timeoutSeconds: 2
-                      periodSeconds: 10
-                      failureThreshold: 10
-                      initialDelaySeconds: 1
                 - name: {{ .Chart.Name }}-xdebug
                   image: magento2-monolith:dev-xdebug
                   imagePullPolicy: Never
