@@ -47,13 +47,13 @@ spec:
                   readinessProbe:
                       exec:
                         command:
-                              - test
-                              - -f
-                              - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
+                          - test
+                          - -f
+                          - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
                       timeoutSeconds: 2
-                      periodSeconds: 30
-                      failureThreshold: 100
-                      initialDelaySeconds: 15
+                      periodSeconds: 10
+                      failureThreshold: 10
+                      initialDelaySeconds: 1
                 - name: {{ .Chart.Name }}-xdebug
                   image: magento2-monolith:dev-xdebug
                   imagePullPolicy: Never
