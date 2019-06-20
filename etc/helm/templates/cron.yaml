@@ -16,7 +16,7 @@ spec:
               args:
                 - /usr/local/bin/php
                 - -f
-                - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
+                - {{.Values.global.monolith.volumeHostPath}}/default/bin/magento
                 - cron:run
               volumeMounts:
                 - name: code
@@ -70,7 +70,7 @@ spec:
               args:
                 - /usr/local/bin/php
                 - -f
-                - {{.Values.global.monolith.volumeHostPath}}/magento/update/cron.php
+                - {{.Values.global.monolith.volumeHostPath}}/default/update/cron.php
               volumeMounts:
                 - name: code
                   mountPath: {{.Values.global.monolith.volumeHostPath}}
@@ -122,7 +122,7 @@ spec:
               args:
                 - /usr/local/bin/php
                 - -f
-                - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
+                - {{.Values.global.monolith.volumeHostPath}}/default/bin/magento
                 - setup:cron:run
               volumeMounts:
                 - name: code
@@ -141,7 +141,7 @@ spec:
                   command:
                     - test
                     - -f
-                    - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
+                    - {{.Values.global.monolith.volumeHostPath}}/default/bin/magento
                 timeoutSeconds: 2
                 periodSeconds: 30
                 failureThreshold: 100

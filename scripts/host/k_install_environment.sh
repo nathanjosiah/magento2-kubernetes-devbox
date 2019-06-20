@@ -24,7 +24,7 @@ cd "${devbox_dir}/etc/helm"
 bash "${devbox_dir}/scripts/host/helm_delete_wait.sh" magento2
 
 # TODO: Eliminate code duplication with k_upgrade_environment
-# Calculate coma-separated list of magento host names
+# Calculate comma-separated list of magento host names
 etc_host_records=""
 for instance_name in $(getInstanceList); do
     etc_host_records="${etc_host_records}\, \"$(getInstanceDomainName ${instance_name})\""
