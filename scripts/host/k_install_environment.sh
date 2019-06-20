@@ -16,6 +16,8 @@ use_varnish="$(bash "${devbox_dir}/scripts/get_env_config_value.sh" "environment
 use_nfs="$(bash "${devbox_dir}/scripts/get_env_config_value.sh" "guest_use_nfs")"
 checkout_source_from="$(bash "${devbox_dir}/scripts/get_config_value.sh" "checkout_source_from")"
 
+bash "${devbox_dir}/scripts/host/configure_nginx_servers.sh"
+
 status "Deploying cluster, it may take several minutes"
 
 cd "${devbox_dir}/etc/helm"
