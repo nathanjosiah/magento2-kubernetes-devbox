@@ -26,10 +26,6 @@ spec:
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: COMPOSER_HOME
                   value: {{.Values.global.monolith.volumeHostPath}}/.composer
-                - name: MAGENTO_ROOT
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
-                - name: MAGENTO_ROOT_HOST
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
                 - name: DEVBOX_ROOT_HOST
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: IS_WINDOWS_HOST
@@ -83,10 +79,6 @@ spec:
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: COMPOSER_HOME
                   value: {{.Values.global.monolith.volumeHostPath}}/.composer
-                - name: MAGENTO_ROOT
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
-                - name: MAGENTO_ROOT_HOST
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
                 - name: DEVBOX_ROOT_HOST
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: IS_WINDOWS_HOST
@@ -140,10 +132,6 @@ spec:
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: COMPOSER_HOME
                   value: {{.Values.global.monolith.volumeHostPath}}/.composer
-                - name: MAGENTO_ROOT
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
-                - name: MAGENTO_ROOT_HOST
-                  value: {{.Values.global.monolith.volumeHostPath}}/magento
                 - name: DEVBOX_ROOT_HOST
                   value: {{.Values.global.monolith.volumeHostPath}}
                 - name: IS_WINDOWS_HOST
