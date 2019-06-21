@@ -35,7 +35,7 @@ spec:
                   command:
                     - test
                     - -f
-                    - {{.Values.global.monolith.volumeHostPath}}/magento/bin/magento
+                    - {{.Values.global.monolith.volumeHostPath}}/default/bin/magento
                 timeoutSeconds: 2
                 periodSeconds: 30
                 failureThreshold: 100
